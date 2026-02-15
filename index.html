@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Background Animation Canvas -->
+    <canvas id="heart-canvas"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+
+    <!-- Navigation / Floating Controls -->
+    <div id="controls" style="position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px;">
+        <button id="music-toggle" class="control-btn" aria-label="Toggle Music">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="bg-music" loop>
+        <source
+            src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_2d04347713.mp3?filename=romantic-piano-1234.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <!-- Main Content Area -->
+    <div id="app">
+        <!-- Hero Section -->
+        <header id="hero" class="fullscreen-section">
+            <div class="hero-content">
+                <h1 id="hero-title">Happy Valentine's Day</h1>
+                <h2 id="partner-name">My Love</h2>
+                <p id="hero-subtitle">Scroll down to see why I love you...</p>
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Sections Container -->
+        <main id="content-sections">
+            <!-- Sections injected via JS -->
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with <i class="fas fa-heart" style="color: var(--primary-color);"></i> for <span
+                    id="footer-name"></span></p>
+            <p id="footer-date"></p>
+        </footer>
+    </div>
+
+    <!-- External JavaScript -->
+    <!-- 1. Config Object (Customize Here!) -->
+    <script src="config.js"></script>
+    <!-- 2. Main Logic -->
+    <script src="script.js"></script>
+</body>
+
+</html>

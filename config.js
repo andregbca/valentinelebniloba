@@ -35,7 +35,7 @@ const config = {
         "Tu gran sonrisa ilumina mis dias.",
         "Me haces sentir especial.",
         "La forma en la que podemos jugar y reir juntos.",
-        "Vez las cosas que me gusatn conmigo aunque no te gusten.",
+        "Vez las cosas que me gustan conmigo aunque no te gusten.",
         "La forma en la que me miras y me motivas me hace sentir que puedo conseguir lo que me proponga.",
         "haces la mejor comida del mundo jijijji."
     ],

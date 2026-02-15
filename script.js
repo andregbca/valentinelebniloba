@@ -87,10 +87,23 @@ function renderGallery() {
 
 function renderVideo() {
     let html = '<div class="video-container">';
-    if (config.videoUrl.includes('youtube') || config.videoUrl.includes('vimeo')) {
-        html += `<iframe src="${config.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    } else {
-        html += `<video controls src="${config.videoUrl}"></video>`;
+    if (config.videoUrl) {
+        // Handle YouTube URLs (Shorts, Watch, etc.)
+        let videoSrc = config.videoUrl;
+        if (config.videoUrl.includes('youtube.com') || config.videoUrl.includes('youtu.be')) {
+            // Convert Shorts or Watch URLs to Embed
+            if (config.videoUrl.includes('/shorts/')) {
+                const videoId = config.videoUrl.split('/shorts/')[1].split('?')[0];
+                videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1`;
+            } else if (config.videoUrl.includes('watch?v=')) {
+                const videoId = config.videoUrl.split('watch?v=')[1].split('&')[0];
+                videoSrc = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1`;
+            }
+            html += `<iframe src="${videoSrc}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        } else {
+            // Standard video file or other iframe
+            html += `<video controls src="${config.videoUrl}"></video>`;
+        }
     }
     html += '</div>';
     return html;
@@ -161,6 +174,12 @@ function initAnimations() {
 function setupMusic() {
     const musicBtn = document.getElementById('music-toggle');
     const audio = document.getElementById('bg-music');
+
+    // Set music source from config
+    if (config.musicUrl) {
+        audio.src = config.musicUrl;
+    }
+
     let isPlaying = false;
     let hasInteracted = false;
 
